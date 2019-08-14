@@ -47,6 +47,7 @@ class MyLinkedList {
             head = new_element;
             tail = new_element;
         } else {
+            head->prev = new_element;
             new_element->next = head;
             head = new_element;
         }
@@ -72,12 +73,12 @@ class MyLinkedList {
      * end of linked list. If index is greater than the length, the node will not
      * be inserted. */
     void addAtIndex(int index, int val) {
-        if (index > length || index < 0) {
+        if (index > length) {
             return;
         } else if (index == length) {
             addAtTail(val);
             return;
-        } else if (index == 0) {
+        } else if (index <= 0) {
             addAtHead(val);
             return;
         }
@@ -151,3 +152,14 @@ class MyLinkedList {
     Element* tail = nullptr;
     int length = 0;
 };
+
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
