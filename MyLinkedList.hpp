@@ -131,12 +131,8 @@ class MyLinkedList {
 
  private:
     [[nodiscard]] Element* getElementAt(const int index) const {
-        if (index < 0 || index > length) {
+        if (index < 0 || index >= length) {
             return nullptr;
-        } else if (index == length - 1) {
-            return tail;
-        } else if (index == 0) {
-            return head;
         }
 
         const auto offset = index > ((length + 1) / 2) ? -1 : 1;
